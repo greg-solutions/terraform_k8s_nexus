@@ -1,7 +1,7 @@
-variable "efs_volume_path" {}
+#variable "efs_volume_path" {}
 variable "namespace" {}
 variable "region" {}
-variable "efs_id" {}
+#variable "efs_id" {}
 
 variable "name" {
   default = "nexus"
