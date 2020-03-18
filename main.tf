@@ -1,3 +1,4 @@
+/*
 resource "kubernetes_namespace" "namespace" {
   metadata {
     annotations = {
@@ -6,12 +7,12 @@ resource "kubernetes_namespace" "namespace" {
     name = "nexus"
   }
 }
-
+*/
 module "deploy_nexus" {
   source = "git::https://bitbucket.gregsolutions.dev/scm/gsiaac/terraform_k8s_deploy"
   #region = var.region
   name = var.name
-  namespace = kubernetes_namespace.namespace.id
+  #namespace = kubernetes_namespace.namespace.id
   image = var.docker_image
   internal_port = var.ports_mapping
   /*
