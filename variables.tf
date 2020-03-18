@@ -22,7 +22,6 @@ variable "ports_mapping" {
     {
       name = "general-port"
       internal_port = "8081"
-      external_port = "8081"
     }
   ]
 }
