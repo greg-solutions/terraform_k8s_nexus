@@ -1,6 +1,6 @@
 #variable "efs_volume_path" {}
-variable "namespace" {}
-variable "region" {}
+#variable "namespace" {}
+#variable "region" {}
 #variable "efs_id" {}
 
 variable "name" {
