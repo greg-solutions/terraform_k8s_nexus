@@ -1,4 +1,4 @@
-module "deploy_redis" {
+module "deploy_nexus" {
   source = "git::https://bitbucket.gregsolutions.dev/scm/gsiaac/terraform_k8s_deploy?ref=v1.0.0"
   region = var.region
   name = var.name
