@@ -1,18 +1,17 @@
-/*
-resource "kubernetes_namespace" "namespace" {
+resource "kubernetes_namespace" "shared-nexus" {
   metadata {
     annotations = {
-      name = "nexus"
+      name = "shared-nexus"
     }
-    name = "nexus"
+    name = "shared-nexus"
   }
 }
-*/
+
 module "deploy_nexus" {
   source = "git::https://bitbucket.gregsolutions.dev/scm/gsiaac/terraform_k8s_deploy"
   #region = var.region
   name = var.name
-  #namespace = kubernetes_namespace.namespace.id
+  namespace = kubernetes_namespace.shared-nexus.id
   image = var.docker_image
   internal_port = var.ports_mapping
   /*
