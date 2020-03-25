@@ -25,6 +25,7 @@ variable "ports_mapping" {
     }
   ]
 }
+
 variable "docker_image" {
   default = "sonatype/nexus3:3.21.1"
 }
