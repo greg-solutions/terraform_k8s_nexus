@@ -8,7 +8,7 @@ resource "kubernetes_namespace" "namespace" {
 }
 
 module "deploy_nexus" {
-  source = "git::https://gitlab.com/gregsolutions/terraform_k8s_deploy?ref=v1.0.0"
+  source = "git::https://bitbucket.gregsolutions.dev/scm/gsiaac/terraform_k8s_deploy.git"
   #region = var.region
   name = var.name
   namespace = kubernetes_namespace.namespace.id
