@@ -1,31 +1,64 @@
-#variable "efs_volume_path" {}
-#variable "namespace" {}
-#variable "region" {}
-#variable "efs_id" {}
-
-variable "name" {
+variable "domain" {
+  description = "(Required) Domain for the url. Generating url: nexus.[domain]"
+}
+variable "app_name" {
+  description = "(Optional) Application name"
   default = "nexus"
 }
-
-variable "volume_mount" {
+variable "app_namespace" {
+  description = "(Optional) Namespace name"
+  default = "nexus"
+}
+variable "create_namespace" {
+  description = "(Optional) Default 'false' value will create namespace in cluster. If you want use exist namespace set 'false' "
+  default = true
+}
+variable "ports" {
+  description = "(Optional) Port mapping"
   default = [
     {
-      mount_path = "/data"
-      sub_path = "nexus-config"
-      volume_name = "nesus-config"
+      name = "web-access"
+      internal_port = "8081"
+      external_port = "80"
     }
   ]
 }
-
-variable "ports_mapping" {
+variable "web_internal_port" {
+  description = "(Optional) Connect URL to Container internal port. !Note! If this value changed, need specify new ports in var.ports"
   default = [
     {
-      name = "general-port"
+      sub_domain = "nexus."
       internal_port = "8081"
     }
   ]
 }
-
-variable "docker_image" {
-  default = "sonatype/nexus3:3.21.1"
+variable "tls" {
+  description = "(Optional) Define TLS , for use only HTTPS"
+  default = []
+}
+variable "ingress_annotations" {
+  description = "(Optional) Set addional annontations for ingress"
+  default = {
+    "kubernetes.io/ingress.class" = "nginx"
+  }
+}
+variable "image_tag" {
+  description = "(Optional) Docker image tag for sonatype/nexus3"
+  default = "latest"
+}
+variable "volume_nfs" {
+  description = "(Optional) Create NFS volume"
+  default = []
+}
+variable "volume_config_map" {
+  description = "(Optional) Create ConfigMap volume"
+  default = []
+}
+variable "volume_host_path" {
+  description = "(Optional) Create HostPath volume"
+  default = []
+}
+variable "volume_mount" {
+  description = "(Optional) Mount path into volume"
+  default = []
 }
