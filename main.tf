@@ -9,7 +9,7 @@ resource "kubernetes_namespace" "namespace" {
 }
 
 module "deploy" {
-  source = "git::https://gitlab.com/gregsolutions/terraform_k8s_deploy.git"
+  source = "git::https://github.com/greg-solutions/terraform_k8s_deploy.git"
   name = var.app_name
   namespace = var.app_namespace
   image = "sonatype/nexus3:${var.image_tag}"
@@ -21,14 +21,14 @@ module "deploy" {
 }
 
 module "service" {
-  source = "git::https://gitlab.com/gregsolutions/terraform_k8s_service.git"
+  source = "git::https://github.com/greg-solutions/terraform_k8s_service.git"
   app_name = var.app_name
   app_namespace = var.app_namespace
   port_mapping = var.ports
 }
 
 module "ingress" {
-  source = "git::https://gitlab.com/gregsolutions/terraform_k8s_ingress.git"
+  source = "git::https://github.com/greg-solutions/terraform_k8s_ingress.git"
   app_name = var.app_name
   app_namespace = var.app_namespace
   domain_name = var.domain
