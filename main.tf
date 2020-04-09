@@ -4,6 +4,7 @@ resource "kubernetes_namespace" "namespace" {
     annotations = {
       name = var.app_namespace
     }
+    labels = var.namespace_labels
     name = var.app_namespace
   }
 }

@@ -9,6 +9,10 @@ variable "app_namespace" {
   description = "(Optional) Namespace name"
   default = "nexus"
 }
+variable "namespace_labels" {
+  description = "(Optional) Add labels for namespace"
+  default = null
+}
 variable "create_namespace" {
   description = "(Optional) Default 'false' value will create namespace in cluster. If you want use exist namespace set 'false' "
   default = true
