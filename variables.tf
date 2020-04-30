@@ -1,11 +1,14 @@
 variable "domain" {
+  type = string
   description = "(Required) Domain for the url. Generating url: nexus.[domain]"
 }
 variable "app_name" {
+  type = string
   description = "(Optional) Application name"
   default = "nexus"
 }
 variable "app_namespace" {
+  type = string
   description = "(Optional) Namespace name"
   default = "nexus"
 }
@@ -14,6 +17,7 @@ variable "namespace_labels" {
   default = null
 }
 variable "create_namespace" {
+  type = bool
   description = "(Optional) Default 'false' value will create namespace in cluster. If you want use exist namespace set 'false' "
   default = true
 }
@@ -37,6 +41,7 @@ variable "web_internal_port" {
   ]
 }
 variable "tls" {
+  type = list(string)
   description = "(Optional) Define TLS , for use only HTTPS"
   default = []
 }
@@ -47,6 +52,7 @@ variable "ingress_annotations" {
   }
 }
 variable "image_tag" {
+  type = string
   description = "(Optional) Docker image tag for sonatype/nexus3"
   default = "latest"
 }
